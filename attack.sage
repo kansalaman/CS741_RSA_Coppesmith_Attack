@@ -5,20 +5,31 @@ from sage.doctest.util import Timer
 
 t = Timer()
 L=list()
+pnum=list()
+expo=list()
+expo.append(125)
+expo.append(253)
+pnum.append(126)
+pnum.append(254)
 L.append(2305567963945518424753102147331756070)
 L.append(962947420735983927056946215901134429196419130606213075415963491270)
 # inpt=input('Enter no. of bits of N ')
 inpt="256"
 if(inpt=='256'):
   L=L[0]
+  pnum=pnum[0]
+  expo=expo[0]
 else:
   L=L[1]
+  pnum=pnum[1]
+  expo=expo[1]
+
 # L *= 701 # if 701 is included
 print 'factors are', factor(L)
 g = Mod(65537,L)
 
-pmin = 3*2**126
-pmax = 4*2**126
+pmin = 3*2**pnum
+pmax = 4*2**pnum
 
 t.start()
 x = randrange(L)
@@ -47,7 +58,6 @@ g = Mod(g,v)
 order2 = g.multiplicative_order()
 print 'order2',order2
 print 'order is',order
-order2 = order2/1000
 # print 'v ',v
 # print 'L/v',L/v,factor(L/v)
 # print 'factors are',factor(v)
@@ -73,8 +83,8 @@ print 'End loop'
 
 t.start()
 
-H = 10 + 2**125 // v
-u += floor((7*2**125) // v) * v
+H = 10 + 2**expo // v
+u += floor((7*2**expo) // v) * v
 
 w = lift(1/Mod(v,n))
 
