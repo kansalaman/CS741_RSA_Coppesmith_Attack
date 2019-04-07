@@ -27,7 +27,7 @@ else:
 # L *= 701 # if 701 is included
 print 'factors are', factor(L)
 g = Mod(65537,L)
-
+print 'pnum is ',expo
 pmin = 3*2**pnum
 pmax = 4*2**pnum
 

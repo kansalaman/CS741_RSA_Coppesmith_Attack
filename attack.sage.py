@@ -31,7 +31,7 @@ else:
 # L *= 701 # if 701 is included
 print 'factors are', factor(L)
 g = Mod(_sage_const_65537 ,L)
-
+print 'pnum is ',expo
 pmin = _sage_const_3 *_sage_const_2 **pnum
 pmax = _sage_const_4 *_sage_const_2 **pnum
 
